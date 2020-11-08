@@ -1,1 +1,2 @@
 # Cloudexo
+Authenticated Online Storage
