@@ -1,0 +1,19 @@
+{
+  "name": "cloudexo",
+  "version": "1.0.0",
+  "description": "Authenticated Online Storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RupalJain97/Cloudexo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RupalJain97/Cloudexo/issues"
+  },
+  "homepage": "https://github.com/RupalJain97/Cloudexo#readme"
+}
