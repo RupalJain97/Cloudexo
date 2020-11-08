@@ -1,0 +1,169 @@
+@media screen and (min-width: 48em) {
+    body {
+        text-align: justify;
+        /* background-color: rgb(238, 240, 239); */
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.row {
+    margin: 0px !important;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+
+/* Jumbotron in head bar */
+
+.jumbotron {
+    border-bottom: rgb(10, 169, 243) 3px solid;
+    background-color: rgb(39, 39, 39);
+    color: rgb(216, 219, 218);
+    height: 155px;
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 50px;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-family: "Comic Sans MS";
+    font-style: italic;
+    text-shadow: 2px 2px 2px rgb(11, 150, 214);
+    font-size: 50px;
+}
+
+
+/* Search Bar */
+
+#searchBar {
+    margin: 0px;
+    padding: 0px;
+}
+
+#searchBar input {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+input[type=text]:focus {
+    outline: rgb(10, 169, 243);
+}
+
+#searchBtn {
+    background-color: rgb(10, 169, 243);
+    border: rgb(10, 169, 243);
+}
+
+
+/* Login Button */
+
+.col-2 {
+    padding: 0px;
+    max-width: 190px !important;
+}
+
+#login,
+#signUp {
+    margin-left: 5px;
+    margin-right: 5px !important;
+    max-width: fit-content;
+    border: rgb(10, 169, 243) 1px solid;
+    color: rgb(39, 39, 39);
+    font-weight: bold;
+    background-color: rgb(216, 219, 218);
+}
+
+
+/* Storage */
+
+#filesUpload {
+    margin: 0px;
+    margin-top: 0px;
+    background-color: rgb(238, 240, 239);
+    padding: 15px 15px;
+}
+
+#storage {
+    margin: 0px;
+    margin-top: 15px;
+    background-color: rgb(238, 240, 239);
+    padding: 15px 15px;
+}
+
+#percentage {
+    margin: 0px;
+    margin-top: 15px;
+    background-color: rgb(238, 240, 239);
+    padding: 15px 15px;
+}
+
+
+/* Container in Upload, delete, rename, sort */
+
+
+/* .file {
+    position: relative;
+    overflow: hidden;
+} */
+
+#uploader {
+    position: absolute;
+    opacity: 0;
+}
+
+#delRenameTab {
+    padding-left: 10px;
+}
+
+#deleteFile,
+#renameFile,
+#sortFile {
+    margin-left: 5px;
+    margin-right: 5px !important;
+    max-width: fit-content;
+    border: rgb(10, 169, 243) 1px solid;
+    color: rgb(39, 39, 39);
+    font-weight: bold;
+    background-color: rgb(216, 219, 218);
+}
+
+
+/* Container having work area */
+
+.thumbnail,
+.col-sm-4 {
+    padding: 2px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-3 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    .col-sm-3 {
+        text-align: right;
+        margin: 25px 0;
+    }
+}
+
+@media screen and (max-width: 192px) {
+    .col-sm-3 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
