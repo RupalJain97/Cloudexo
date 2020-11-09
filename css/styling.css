@@ -1,7 +1,7 @@
 @media screen and (min-width: 48em) {
     body {
         text-align: justify;
-        /* background-color: rgb(238, 240, 239); */
+        background-color: rgb(238, 240, 239);
     }
 }
 
@@ -18,7 +18,7 @@ html {
 }
 
 
-/* Jumbotron in head bar */
+/* Jumbotron */
 
 .jumbotron {
     border-bottom: rgb(10, 169, 243) 3px solid;
@@ -37,9 +37,6 @@ h1 {
     text-shadow: 2px 2px 2px rgb(11, 150, 214);
     font-size: 50px;
 }
-
-
-/* Search Bar */
 
 #searchBar {
     margin: 0px;
@@ -60,9 +57,6 @@ input[type=text]:focus {
     border: rgb(10, 169, 243);
 }
 
-
-/* Login Button */
-
 .col-2 {
     padding: 0px;
     max-width: 190px !important;
@@ -80,41 +74,80 @@ input[type=text]:focus {
 }
 
 
-/* Storage */
+/* Sidebar Menu in Storage */
+
+#storage {
+    margin: 0px;
+    background-color: rgb(238, 240, 239);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-bottom: rgb(10, 169, 243) 3px solid;
+}
+
+#menuTab {
+    border-right: rgb(10, 169, 243) 2px solid;
+    padding: 0px;
+    /* background-color: rgb(39, 39, 39); */
+    background-color: #9db4c7;
+    width: 200px !important;
+}
+
+.sidebar {
+    padding: 20px;
+}
+
+.sidebar .nav-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sidebar .nav-link {
+    /* color: rgb(216, 219, 218); */
+    color: rgb(39, 39, 39);
+    font-family: Pristina;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    background-color: rgb(238, 240, 239);
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+
+/* Upload, Delete, Rename, Sort Functionality in Storage */
+
+#storageTab {
+    padding: 0px;
+    color: rgb(39, 39, 39);
+    background-color: rgb(238, 240, 239);
+}
 
 #filesUpload {
     margin: 0px;
     margin-top: 0px;
     background-color: rgb(238, 240, 239);
     padding: 15px 15px;
+    border-bottom: rgb(10, 169, 243) 1px solid;
 }
 
-#storage {
-    margin: 0px;
-    margin-top: 15px;
-    background-color: rgb(238, 240, 239);
-    padding: 15px 15px;
+#uploadFile {
+    border: rgb(10, 169, 243) 1px solid;
+    background-color: rgb(39, 39, 39);
+    color: #9db4c7;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
-#percentage {
-    margin: 0px;
-    margin-top: 15px;
-    background-color: rgb(238, 240, 239);
-    padding: 15px 15px;
-}
-
-
-/* Container in Upload, delete, rename, sort */
-
-
-/* .file {
-    position: relative;
-    overflow: hidden;
-} */
-
-#uploader {
-    position: absolute;
-    opacity: 0;
+.custom-file-label::after {
+    border: rgb(10, 169, 243) 1px solid;
+    color: rgb(39, 39, 39);
+    font-weight: bold;
+    background-color: rgb(216, 219, 218);
 }
 
 #delRenameTab {
@@ -130,16 +163,51 @@ input[type=text]:focus {
     border: rgb(10, 169, 243) 1px solid;
     color: rgb(39, 39, 39);
     font-weight: bold;
-    background-color: rgb(216, 219, 218);
+    /* background-color: #6c757d; */
+    background-color: #9db4c7;
 }
 
 
-/* Container having work area */
+/* Storage Area*/
 
-.thumbnail,
-.col-sm-4 {
-    padding: 2px;
-    margin: 5px;
+#folders,
+#documents,
+#images,
+#trash {
+    padding-top: 20px;
+}
+
+
+/* Setting n Logout */
+
+#settings {
+    margin: 0px;
+    background-color: rgb(238, 240, 239);
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 0px;
+}
+
+#percentage {
+    margin: 0px;
+    background-color: rgb(238, 240, 239);
+    padding-left: 15px;
+}
+
+.progress-bar {
+    width: 25%;
+}
+
+#logOut,
+#account {
+    margin-left: 5px;
+    margin-right: 5px !important;
+    max-width: fit-content;
+    border: rgb(10, 169, 243) 1px solid;
+    color: rgb(39, 39, 39);
+    font-weight: bold;
+    background-color: #9db4c7;
 }
 
 @media screen and (max-width: 768px) {
@@ -161,9 +229,4 @@ input[type=text]:focus {
         text-align: center;
         margin: 25px 0;
     }
-}
-
-img {
-    width: 50px;
-    height: auto;
 }
