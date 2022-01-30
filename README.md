@@ -1,4 +1,4 @@
 # Cloudexo
 Cloud Storage System
 
-![Home Page](Home.jpg)
+![Home Page](/images/Home.jpg)
