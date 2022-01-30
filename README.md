@@ -1,2 +1,4 @@
 # Cloudexo
-Authenticated Online Storage
+Cloud Storage System
+
+![Home Page](Home.jpg)

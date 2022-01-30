@@ -104,9 +104,5 @@ dist
 .tern-port
 
 #extra files
-navbar.html
-fb_icon_325x325.png
-IMG_20170508_142322.jpg
-Screenshot from 2018-04-14 02-36-34.png
-Screenshot from 2018-04-14 02-36-49.png
-gmail.png
+.images
+MongoDB.txt

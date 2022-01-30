@@ -9,10 +9,14 @@
     </title>
 
     <!-- Bootstrap & jQuery -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/da69beb931.js" crossorigin="anonymous"></script>
+
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
 
     <!--<link rel="stylesheet" href="./CSS/bootstrap.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/styling.css">
@@ -22,208 +26,241 @@
 <body data-spy="scroll" data-target="#main-nav" id="home">
 
     <!-- Navbar Header -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="jumbotron">
-                <h1>Cloudexo</h1>
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Cloudexo</h1>
 
-                <form class="form-inline justify-content-between">
-                    <div class="col-8 input-group" id="searchBar">
-                        <input class="form-control" id="inputBar" type="text" placeholder="Enter file here..." aria-label="Search" required>
-                        <div class="input-group-append">
-                            <button type="submit" class="btn input-group-text" value="Submit" id="searchBtn"><i class="fas fa-search fa-lg" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-2" role="group">
-                        <button type="button" id="login" class="btn form-control">Sign In</button>
-                        <button type="button" id="signUp" class="btn form-control">Sign Up</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-12" id="storage">
-                <div class="row container-fluid">
-
-                    <!-- Sidebar Menu in Storage -->
-                    <div class="col-md-2" id="menuTab">
-                        <div class="sidebar" id="main-nav">
-                            <ul class="nav nav-tabs flex-column">
-                                <li class="nav-item active">
-                                    <a class="nav-link active" id="panel-file" href="#panelFile" data-toggle="tab" role="tab">
-                                        <i class="fas fa-folder-open"></i> Folders</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="panel-doc" href="#panelDoc" data-toggle="tab" role="tab">
-                                        <i class="fas fa-file"></i> Documents</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="panel-image" href="#panelImage" data-toggle="tab" role="tab">
-                                        <i class="fas fa-images"></i> Images</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="panel-trash" href="#panelTrash" data-toggle="tab" role="tab">
-                                        <i class="fas fa-trash-alt"></i> Trash</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="col" id="storageTab">
-
-                        <!-- Upload, Delete, Rename, Sort Functionality in Storage -->
-                        <div class="container-fluid col-12 form-inline justify-content-between" id="filesUpload">
-                            <div class="col-5">
-                                <div class="input-group">
-                                    <button type="submit" class="btn input-group-text" value="Upload" id="uploadFile" title="Upload"><i class="fas fa-cloud-upload-alt fa-lg" aria-hidden="true"></i></button>
-
-                                    <div class="input-group custom-file">
-                                        <input id="uploadBar" class="custom-file-input" type="file">
-                                        <label class="custom-file-label" for="uploadBar">Choose a file...</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-4">
-                                <div class="btn-toolbar" role="toolbar" id="delRenameTab">
-                                    <button class="btn btn-secondary" id="deleteFile" type="button">Delete</button>
-                                    <button class="btn btn-secondary" id="renameFile" type="button">Rename</button>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="sortFile" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Sort By</button>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortFile">
-                                            <a class="dropdown-item" href="#panelFile">Date(Asc.)</a>
-                                            <a class="dropdown-item" href="#panelImage">Date(Desc.)</a>
-                                            <a class="dropdown-item" href="#panelDoc">Name(Asc.)</a>
-                                            <a class="dropdown-item" href="#panelHome">Name(Desc.)</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Storage Area-->
-                        <div class="container-fluid col-12 tab-content">
-                            <div class="tab-pane fade active" id="panelFile" role="tabpanel" aria-labelledby="panel-file">
-                                <div class="container-fluid" id="folders">
-                                    <div class="row text-center">
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-folder-open fa-3x"></i>
-                                            <p><strong>folder name</strong></p>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-folder-open fa-3x"></i>
-                                            <p><strong>folder name</strong></p>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-folder-open fa-3x"></i>
-                                            <p><strong>folder name</strong></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="panelDoc" role="tabpanel" aria-labelledby="panel-doc">
-                                <div class="container-fluid" id="documents">
-                                    <div class="row text-center">
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-file fa-3x"></i>
-                                            <p><strong>Doc name</strong></p>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-file fa-3x"></i>
-                                            <p><strong>Doc name</strong></p>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-file fa-3x"></i>
-                                            <p><strong>Doc name</strong></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="panelImage" role="tabpanel" aria-labelledby="panel-image">
-                                <div class="container-fluid" id="images">
-                                    <div class="row text-center">
-                                        <div class="col-sm-2">
-                                            <!-- <div class="thumbnail"> -->
-                                            <img src="fb_icon_325x325.png" class="img-fluid img-thumbnail" alt="FB">
-                                            <p><strong>image name</strong></p>
-                                            <!-- </div> -->
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <!-- <div class="thumbnail"> -->
-                                            <img src="gmail.png" class="img-fluid img-thumbnail" alt="Gmail">
-                                            <p><strong>image name</strong></p>
-                                            <!-- </div> -->
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <!-- <div class="thumbnail"> -->
-                                            <img src="IMG_20170508_142322.jpg" class="img-fluid img-thumbnail" alt="Image">
-                                            <p><strong>image name</strong></p>
-                                            <!-- </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="panelTrash" role="tabpanel" aria-labelledby="panel-trash">
-                                <div class="container-fluid" id="trash">
-                                    <div class="row text-center">
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-file fa-3x"></i>
-                                            <p><strong>Doc name</strong></p>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-file fa-3x"></i>
-                                            <p><strong>Doc name</strong></p>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <i class="fas fa-folder-open fa-3x"></i>
-                                            <p><strong>folder name</strong></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+            <form class="form-inline justify-content-between">
+                <div class="col-8 input-group" id="searchBar">
+                    <input class="form-control" id="inputBar" type="text" placeholder="Enter file here..."
+                        aria-label="Search" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn input-group-text" value="Submit" id="searchBtn"><i
+                                class="fas fa-search fa-lg" aria-hidden="true"></i></button>
                     </div>
                 </div>
-            </div>
+                <div class="col-2" role="group">
+                    <button type="button" id="login" class="btn form-control">Sign In</button>
+                    <button type="button" id="signUp" class="btn form-control">Sign Up</button>
+                </div>
+            </form>
+
         </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12" id="storage">
+            <div class="row container-fluid">
+
+                <!-- Sidebar Menu in Storage -->
+                <div class="col-md-2" id="menuTab">
+                    <div class="sidebar" id="main-nav">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item active">
+                                <a class="nav-link active" id="panel-file" href="#panelFile" data-toggle="tab"
+                                    role="tab">
+                                    <i class="fas fa-folder-open"></i> Folders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="panel-doc" href="#panelDoc" data-toggle="tab" role="tab">
+                                    <i class="fas fa-file"></i> Documents</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="panel-image" href="#panelImage" data-toggle="tab" role="tab">
+                                    <i class="fas fa-images"></i> Images</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="panel-trash" href="#panelTrash" data-toggle="tab" role="tab">
+                                    <i class="fas fa-trash-alt"></i> Trash</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
 
-        <div class="row">
+                <div class="col" id="storageTab">
 
-            <!-- Setting n Logout -->
-            <div class="col-12" id="settings">
-                <div class="row container-fluid justify-content-between">
-                    <div class="col-md-3" id="percentage">
-                        <div class="progress">
-                            <div class="progress-bar" id="storagePer" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
+                    <!-- Upload, Delete, Rename, Sort Functionality in Storage -->
+                    <div class="container-fluid col-12 form-inline justify-content-between" id="filesUpload">
+                        <div class="col-5">
+                            <div class="input-group">
+                                <button type="submit" class="btn input-group-text" value="Upload" id="uploadFile"
+                                    title="Upload" onclick="uploadFile()"><i class="fas fa-cloud-upload-alt fa-lg"
+                                        aria-hidden="true"></i></button>
+
+                                <form class="input-group custom-file" action="/upload" method="POST"
+                                    enctype="multipart/form-data">
+                                    <input id="uploadBar" class="custom-file-input form-control-file" type="file"
+                                        name="file">
+                                    <label class="custom-file-label" for="uploadBar" id="inputLabel">Choose a
+                                        file...</label>
+                                </form>
                             </div>
                         </div>
-                        <p>Storage: 8Gb</p>
+
+                        <div class="col-4">
+                            <div class="btn-toolbar" role="toolbar" id="delRenameTab">
+                                <button class="btn btn-secondary" id="deleteFile" type="button">Delete</button>
+                                <button class="btn btn-secondary" id="renameFile" type="button">Rename</button>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="sortFile"
+                                        data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Sort
+                                        By</button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortFile">
+                                        <a class="dropdown-item" href="#panelFile">Date(Asc.)</a>
+                                        <a class="dropdown-item" href="#panelImage">Date(Desc.)</a>
+                                        <a class="dropdown-item" href="#panelDoc">Name(Asc.)</a>
+                                        <a class="dropdown-item" href="#panelHome">Name(Desc.)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-secondary" id="account" type="button">Account Settings</button>
-                        <button class="btn btn-secondary" id="logOut" type="button">Logout</button>
+
+                    <!-- Storage Area-->
+                    <div class="container-fluid col-12 tab-content">
+                        <div class="tab-pane fade active" id="panelFile" role="tabpanel" aria-labelledby="panel-file">
+                            <div class="container-fluid" id="folders">
+                                <div class="row text-center">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-folder-open fa-3x"></i>
+                                        <p><strong>folder name</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-folder-open fa-3x"></i>
+                                        <p><strong>folder name</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-folder-open fa-3x"></i>
+                                        <p><strong>folder name</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="panelDoc" role="tabpanel" aria-labelledby="panel-doc">
+                            <div class="container-fluid" id="documents">
+                                <div class="row text-center">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-file fa-3x"></i>
+                                        <p><strong>Doc name</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-file fa-3x"></i>
+                                        <p><strong>Doc name</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-file fa-3x"></i>
+                                        <p><strong>Doc name</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="panelImage" role="tabpanel" aria-labelledby="panel-image">
+                            <div class="container-fluid">
+                                <div class="row text-center" id="images">
+                                    <div class="col-sm-2">
+                                        <img src="download1.jpeg" class="img-fluid img-thumbnail">
+                                        <p><strong>Pink Tree</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download6.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Snow Mountain</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download3.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Butterfly</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download5.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Cubs</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download4.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Village</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download2.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Mountain Cave</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download7.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Tiger</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download8.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Peacock</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download9.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Gallery</strong></p>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="download10.jpeg" class="img-fluid img-thumbnail" alt="Image">
+                                        <p><strong>Flower</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="panelTrash" role="tabpanel" aria-labelledby="panel-trash">
+                            <div class="container-fluid" id="trash">
+                                <div class="row text-center">
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-file fa-3x"></i>
+                                        <p><strong>Doc name</strong></p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-file fa-3x"></i>
+                                        <p><strong>Doc name</strong></p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <i class="fas fa-folder-open fa-3x"></i>
+                                        <p><strong>folder name</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-
+    <div class="row">
+        <div class="container-fluid justify-content-between" id="settings">
+            <div class="row">
+                <div class="col-3" id="percentage">
+                    <div class="progress">
+                        <div class="progress-bar" id="storagePer" role="progressbar" aria-valuenow="10"
+                            aria-valuemin="0" aria-valuemax="100">10%
+                        </div>
+                    </div>
+                    <p>Storage: 8Gb</p>
+                </div>
+                <div class="col-3 offset-md-6">
+                    <button class="btn btn-secondary" id="account" type="button">Account Settings</button>
+                    <button class="btn btn-secondary" id="logOut" type="button" disabled>Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -250,12 +287,16 @@
             </div>
         </div> -->
 
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous ">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous ">
+        </script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 
     <!-- JavaScript Files -->

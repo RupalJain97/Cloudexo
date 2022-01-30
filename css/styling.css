@@ -24,9 +24,9 @@ html {
     border-bottom: rgb(10, 169, 243) 3px solid;
     background-color: rgb(39, 39, 39);
     color: rgb(216, 219, 218);
-    height: 155px;
+    height: 132px;
     width: 100%;
-    padding-top: 30px;
+    padding-top: 15px;
     padding-left: 50px;
     margin-bottom: 0px;
 }
@@ -151,7 +151,7 @@ input[type=text]:focus {
 }
 
 #delRenameTab {
-    padding-left: 10px;
+    padding-left: 100px;
 }
 
 #deleteFile,
@@ -184,9 +184,12 @@ input[type=text]:focus {
     margin: 0px;
     background-color: rgb(238, 240, 239);
     padding-top: 20px;
-    padding-bottom: 15px;
     padding-left: 20px;
     padding-right: 0px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 #percentage {
@@ -196,9 +199,13 @@ input[type=text]:focus {
 }
 
 .progress-bar {
-    width: 25%;
+    width: 10%;
 }
 
+.offset-md-6{
+    margin-left: 50%;
+    padding-left: 85px;
+}
 #logOut,
 #account {
     margin-left: 5px;
